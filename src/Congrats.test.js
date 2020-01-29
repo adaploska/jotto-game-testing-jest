@@ -32,7 +32,7 @@ test("renders non-empty text when `success` prop is  true", () => {
   const message = findByTestAttr(wrapper, "congrats-message");
   expect(message.text().length).not.toBe(0);
 });
-test("does not thtow worning with expected props", () => {
-  const expectedProps = setup({ success: false });
-  checkProps(Congrats, expectedProps);
-});
+// test("does not throw worning with expected props", () => {
+//   const expectedProps = setup({ success: false });
+//   checkProps(Congrats, expectedProps);
+// });
