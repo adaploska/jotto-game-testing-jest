@@ -4,9 +4,9 @@ import checkPropTypes from "check-prop-types";
 const Congrats = props => {
   if (props.success) {
     return (
-      <div data-test="component-congrats">
-        <span data-test="congrats-message">
-          congratulations! You guessed the word!
+      <div data-test="component-congrats" className="mt-5 mb-5">
+        <span data-test="congrats-message" className="alert alert-success">
+          Congratulations! You guessed the word!
         </span>
       </div>
     );
