@@ -19,3 +19,19 @@ const setup = (props = {}) => {
 test("does not throw worning with expected props", () => {
   checkProps(GuessedWords, defaultProps);
 });
+
+describe("if there are not words guessed", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = setup({ guessedWords: [] });
+  });
+  test("render without error", () => {
+    const component = findByTestAttr(wrapper, "component-guessed-word");
+    expect(component.length).toBe(1);
+  });
+  test("renders instructions to guess the word", () => {
+    const instructions = findByTestAttr(wrapper, "guess-instructions");
+    expect(instructions.text()).not.toBe(0);
+  });
+});
+describe("if there is words guessed", () => {});
