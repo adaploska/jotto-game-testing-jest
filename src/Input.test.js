@@ -38,10 +38,24 @@ describe("render", () => {
       expect(submitButton.length).toBe(1);
     });
   });
-  describe("word has  been guessed", () => {
-    test("render without error", () => {});
-    test("does not render input box", () => {});
-    test("does not render submit button", () => {});
+  describe("word has been guessed", () => {
+    let wrapper;
+    beforeEach(() => {
+      let initialState = { success: true };
+      wrapper = setup(initialState);
+    });
+    test("render without error", () => {
+      const component = findByTestAttr(wrapper, "component-input");
+      expect(component.length).toBe(1);
+    });
+    test("does not render input box", () => {
+      const inputBox = findByTestAttr(wrapper, "input-box");
+      expect(inputBox.length).toBe(0);
+    });
+    test("does not render submit button", () => {
+      const submitButton = findByTestAttr(wrapper, "submit-button");
+      expect(submitButton.length).toBe(0);
+    });
   });
 });
 describe("update state", () => {});
