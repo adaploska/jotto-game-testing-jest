@@ -1,14 +1,19 @@
 import checkPropTypes from "check-prop-types";
 import rootReducer from "../src/reducers/index";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import { middlewares } from "../src/configureStore";
 /**
- * Create a testing store with imported reducers middleware and initial state.
+ * Create a testing store with imported reducers middleware
+ * global, rootReducer , middleware and initial state.
  * @param {Object} initialState - initial state for store.
  * @function storeFactory.
  * @returns {Store} redux store
  */
 export const storeFactory = initialState => {
-  return createStore(rootReducer, initialState);
+  const createStoreWithMiddleware = applyMiddleware(...middlewares)(
+    createStore
+  );
+  return createStoreWithMiddleware(rootReducer, initialState);
 };
 /**
  * Return ShallowWrapper containing node(s) with the given data-test value.
