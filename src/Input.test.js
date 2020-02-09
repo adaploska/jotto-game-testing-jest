@@ -15,6 +15,7 @@ const setup = (initialState = {}) => {
   const wrapper = shallow(<Input store={store} />)
     .dive()
     .dive();
+  console.log(wrapper);
   return wrapper;
 };
 
