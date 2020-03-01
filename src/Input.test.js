@@ -98,7 +98,7 @@ describe("`guessWord` action creator", () => {
     //console.log(guessWordMock.mock.calls);
     expect(guessWordArg).toBe(guessedWord);
   });
-  // test("input box clears on submit", () => {
-  //   expect(wrapper.state("currentGuess")).toBe("");
-  // });
+  test("input box clears on submit", () => {
+    expect(wrapper.state("currentGuess")).toBe("");
+  });
 });

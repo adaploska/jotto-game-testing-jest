@@ -56,4 +56,14 @@ describe("if there is words guessed", () => {
     const guessedWordsNode = findByTestAttr(wrapper, "guessed-word");
     expect(guessedWordsNode.length).toBe(guessedWords.length);
   });
+  test("show correct number of guessed word", () => {
+    const guessWordIndexes = findByTestAttr(wrapper, "guessed-word-index");
+    const indexTextSet = new Set(
+      guessWordIndexes.map(wrapper => wrapper.text())
+    );
+    const expectedSet = new Set(
+      guessedWords.map((word, index) => (index + 1).toString())
+    );
+    expect(indexTextSet).toEqual(expectedSet);
+  });
 });
