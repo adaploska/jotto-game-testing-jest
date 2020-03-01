@@ -6,7 +6,9 @@ import { connect } from "react-redux";
 import Input from "./Input";
 import { getSecretWord } from "./actions/index";
 export class UnConnectedApp extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getSecretWord();
+  }
   render() {
     return (
       <div className="container" data-test="component-app">
