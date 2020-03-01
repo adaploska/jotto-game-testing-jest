@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { guessWord } from "./actions/index";
 class Input extends Component {
+  
   render() {
     const content = this.props.success ? null : (
       <form className="form-inline">
